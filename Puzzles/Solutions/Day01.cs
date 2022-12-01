@@ -12,7 +12,7 @@
             foreach (string line in input)
             {
                 int conversion = 0;
-                if (Int32.TryParse(line, out conversion))
+                if (int.TryParse(line, out conversion))
                 {
                     currentCalories += conversion;
                 }
@@ -37,7 +37,7 @@
             foreach (string line in input)
             {
                 int conversion = 0;
-                if (Int32.TryParse(line, out conversion))
+                if (int.TryParse(line, out conversion))
                 {
                     currentCalories += conversion;
                 }
