@@ -26,6 +26,14 @@
                 }
             }
 
+            if (currentCalories != 0)
+            {
+                if (currentCalories > maxCalories)
+                {
+                    maxCalories = currentCalories;
+                }
+            }
+
             return maxCalories.ToString();
         }
 
@@ -46,6 +54,11 @@
                     allTotals.Add(currentCalories);
                     currentCalories = 0;
                 }
+            }
+
+            if (currentCalories != 0)
+            {
+                allTotals.Add(currentCalories);
             }
 
             allTotals = allTotals.OrderByDescending(x => x).ToList();
