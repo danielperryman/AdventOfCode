@@ -8,42 +8,28 @@ namespace Puzzles.Solutions
 
         public string Puzzle1(string[] input)
         {
-            foreach (var item in input)
-            {
-                int currentPosition = 0;
-                while (currentPosition < item.Length)
-                {
-                    string currentSegment = item.Substring(currentPosition, 4);
-                    if (currentSegment.Distinct().Count() == 4)
-                    {
-                        return (currentPosition + 4).ToString();
-                    }
-
-                    currentPosition++;
-                }
-            }
-
-            return String.Empty;
+            return ParseMessage(4, input[0]);
         }
 
         public string Puzzle2(string[] input)
         {
-            foreach (var item in input)
+            return ParseMessage(14, input[0]);
+        }
+
+        private string ParseMessage(int numberOfUnique, string item)
+        {
+            int currentPosition = 0;
+            while (currentPosition < item.Length - numberOfUnique)
             {
-                int currentPosition = 0;
-                while (currentPosition < item.Length - 14)
+                string currentSegment = item.Substring(currentPosition, numberOfUnique);
+                if (currentSegment.Distinct().Count() == numberOfUnique)
                 {
-                    string currentSegment = item.Substring(currentPosition, 14);
-                    if (currentSegment.Distinct().Count() == 14)
-                    {
-                        return (currentPosition + 14).ToString();
-                    }
-
-                    currentPosition++;
+                    return (currentPosition + numberOfUnique).ToString();
                 }
-            }
 
-            return String.Empty;
+                currentPosition++;
+            }
+            return string.Empty;
         }
     }
 }
