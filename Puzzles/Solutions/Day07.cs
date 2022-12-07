@@ -1,6 +1,4 @@
-﻿using System.Xml.Linq;
-
-namespace Puzzles.Solutions
+﻿namespace Puzzles.Solutions
 {
     public sealed class Day07 : IPuzzle
     {
