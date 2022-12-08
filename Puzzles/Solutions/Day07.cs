@@ -47,7 +47,7 @@
 
         public Directory BuildDirectoryTree(string[] input)
         {
-            var root = new Directory { Name = "root" };
+            var root = new Directory { Name = "/" };
 
             Directory currentDirectory = root;
 
