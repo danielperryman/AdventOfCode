@@ -12,7 +12,7 @@
 
         public class Grid
         {
-            List<List<bool>> Positions { get; set; }
+            private List<List<bool>> Positions { get; set; }
 
             private List<Knot> Knots { get; set; }
 
@@ -67,7 +67,7 @@
                 }
             }
 
-            public void DetermineMoves()
+            private void DetermineMoves()
             {
                 for (int x = 0; x < Knots.Count() - 1; x++)
                 {
@@ -116,7 +116,7 @@
                 Positions[tail.X][tail.Y] = true;
             }
 
-            public void AddRows()
+            private void AddRows()
             {
                 if (Knots[0].X >= 0)
                 {
@@ -138,7 +138,7 @@
                 }
             }
 
-            public void AddColumn()
+            private void AddColumn()
             {
                 for (int x = 0; x < Positions.Count(); x++)
                 {
@@ -152,9 +152,9 @@
                     knot.Y++;
                 }
             }
-        
 
-            public void FillRows()
+
+            private void FillRows()
             {
                 foreach(var row in Positions)
                 {
@@ -165,6 +165,15 @@
                 }
             }
 
+            private void MoveX(Knot lead, Knot follow)
+            {
+                follow.X = lead.X > follow.X ? follow.X + 1 : follow.X - 1;
+            }
+            private void MoveY(Knot lead, Knot follow)
+            {
+                follow.Y = lead.Y > follow.Y ? follow.Y + 1 : follow.Y - 1;
+            }
+
             public string CountVists()
             {
                 int visits = 0;
@@ -173,15 +182,6 @@
                     visits += row.Count(r => r);
                 }
                 return visits.ToString();
-            }
-
-            public void MoveX(Knot lead, Knot follow)
-            {
-                follow.X = lead.X > follow.X ? follow.X + 1 : follow.X - 1;
-            }
-            public void MoveY(Knot lead, Knot follow)
-            {
-                follow.Y = lead.Y > follow.Y ? follow.Y + 1 : follow.Y - 1;
             }
 
         }
