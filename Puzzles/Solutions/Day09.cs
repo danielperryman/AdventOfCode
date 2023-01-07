@@ -4,14 +4,14 @@
     {
         public int Day => 9;
 
-        public class Knot 
-        {
-            public int X { get; set; }
-            public int Y { get; set; }
-        }
-
         public class Grid
         {
+            private class Knot
+            {
+                public int X { get; set; }
+                public int Y { get; set; }
+            }
+
             private List<List<bool>> Positions { get; set; }
 
             private List<Knot> Knots { get; set; }
