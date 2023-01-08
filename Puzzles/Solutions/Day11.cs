@@ -262,9 +262,11 @@ namespace Puzzles.Solutions
 
         public string Puzzle2(string[] input)
         {
-            var game = new MonkeyGame(input, 10000, 1);
+            //var game = new MonkeyGame(input, 10000, 1);
 
-            return game.PlayGame();
+            //return game.PlayGame();
+
+            return "GAHHHH";
         }
     }
 }
